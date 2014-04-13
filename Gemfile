@@ -23,8 +23,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 gem 'carrierwave'
 
 #gem for image support 'Rmagic'
-gem 'rmagick', '~> 2.13.2'
-
+gem "rmagick", :require => 'RMagick'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
