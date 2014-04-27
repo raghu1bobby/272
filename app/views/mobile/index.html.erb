@@ -1,5 +1,27 @@
+<ul id="image_player">
+  <li><img src="/assets/Dsc00158.jpg"></li>
+  <li><img src="/assets/sample1.png"></li>
+  <li><img src="/assets/sample1.png"></li>
+  <li><img src="/assets/sample3.png"></li>
+  <li><img src="/assets/sample4.png"></li>
+  <li><img src="/assets/sample5.png"></li>
+  <li><img src="/assets/sample6.png"></li>
+  <li><img src="/assets/Dsc00158.jpg"></li>
+  <li><img src="/assets/sample7.png"></li>
+  
 
-
-<% @mobile.each do |mobile|%>
-<%= image_tag mobile.image.url, :width => 100, :height => 150, :crop => :fill %>
-<% end %>
+  
+</ul>
+<script>
+  $(function() {
+    var options = {
+      stageWidth:400,
+      stageHeight:300,
+      autoStart:false,
+      pauseOnHover:true,
+      delay:1,
+      loop:true
+    };
+    $('#image_player').imagePlayer(options);
+  });
+</script>
