@@ -5,6 +5,14 @@ UAssingnment::Application.routes.draw do
   get "mobile/index"
   get "category/index"
   get "category/show"
+  post "/education/player"
+  get "/education/player"
+  get "/construction/player"
+ post "/construction/player"
+ get "/hotel/player"
+ post "/hotel/player"
+  get "/mobile/player"
+ post "/mobile/player"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # The priority is based upon order of creation: first created -> highest priority.
