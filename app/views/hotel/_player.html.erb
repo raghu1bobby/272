@@ -1,0 +1,25 @@
+<h1>Player</h1>
+
+<ul id="image_player" style="display: none;">
+  <% @images.each do |image|%>  
+  <li><img src="<%= image %>"></li>
+  <% end %>
+</ul>
+  
+
+<script>
+  $(function() {
+    var options = {
+      stageWidth:400,
+      stageHeight:300,
+      autoStart:false,
+      pauseOnHover:true,
+      delay:1,
+      loop:true
+    };
+    $('#image_player').imagePlayer(options);
+  });
+  </script>
+
+
+
