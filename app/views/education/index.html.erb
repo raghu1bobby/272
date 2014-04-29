@@ -1,3 +1,70 @@
-<% @education.each do |education|%>
-<%= image_tag education.image.url, :width => 100, :height => 150, :crop => :fill%>
-<% end %>
+
+<div id = "replaced">
+<div id="container">
+	<form name="frm_images"  method="post" action="">
+		<div>
+			<input type="hidden" value="" name="hdn_images" id="hdn_images">		
+		</div>
+	</form>
+	<input type="button" name="btn_submit" onclick="submit()" value="send">
+	<%#= link_to "Madhu", "/education/player", :onclick=>"submit()"%>
+	<% @education.each do |education|%>
+	<div class="single_image">	
+		
+		 <%= image_tag education.image.url, :width => 100, :height => 150, :crop => :fill%>
+		<input type="checkbox" class="images" name="images[]" id="<%=education.id%>"  value="<%=education.image.url%>">
+	</div>
+	<% end %>
+</div>
+</div>
+
+<div id = "hi">
+
+</div>
+
+<script type="text/javascript">
+	
+	// $( "input[type=checkbox]" ).on( "click", images(this.value) )
+	
+	
+  // $(function() {
+  //   var options = {
+  //     stageWidth:400,
+  //     stageHeight:300,
+  //     autoStart:false,
+  //     pauseOnHover:true,
+  //     delay:1,
+  //     loop:true
+  //   };
+  //   $('#container').imagePlayer(options);
+  // });
+	
+	function submit()
+	{
+		var chkId = '';
+		$('.images:checked').each(function() {
+		  chkId += $(this).val() + ",";
+		});
+		chkId = chkId.slice(0,-1);// Remove last comma 	
+		
+
+		$.ajax({
+			url:"/education/player?image="+chkId,
+			type: "POST",
+			context: document.body
+			}).done(function(data) {
+				//do somthing
+		
+                    $('#replaced').html(data);
+
+				// $('#replaced').html(data);
+			});
+		//$("#hdn_images").val(chkId);
+		//document.frm_images.submit();	
+	
+	}	
+
+	 
+
+</script>
+
